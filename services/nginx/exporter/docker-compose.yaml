@@ -5,5 +5,5 @@ services:
     ports:
       - "9113:9113"
     command:
-      - '--nginx.scrape-uri=http://host.docker.internal:8080/nginx_status'
+      - '--nginx.scrape-uri=http://172.17.0.1:80/nginx_status'
     network_mode: "host"

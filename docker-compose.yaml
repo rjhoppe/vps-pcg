@@ -30,8 +30,8 @@ services:
     ports:
       - "19113:9113"
     command:
-      - '--nginx.scrape-uri=http://host.docker.internal:8080/nginx_status'
-    # If running nginx in another container, adjust the scrape-uri accordingly
+      # to scrape nginx running on server root
+      - '--nginx.scrape-uri=http://172.17.0.1:80/nginx_status'
 
   f2b-exporter:
     image: registry.gitlab.com/hctrdev/fail2ban-prometheus-exporter:latest
