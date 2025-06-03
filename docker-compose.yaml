@@ -27,12 +27,10 @@ services:
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:latest
     container_name: nginx-exporter
-    ports:
-      - "9113:9113"  # Add this port mapping
+    ports: 
+      - "9113:9113"
     command:
-      - '--nginx.scrape-uri=http://host.docker.internal/nginx_status'  # Changed URL
-    extra_hosts:
-      - "host.docker.internal:host-gateway" 
+      - '--nginx.scrape-uri=http://host.docker.internal/nginx_status'
 
   f2b-exporter:
     image: registry.gitlab.com/hctrdev/fail2ban-prometheus-exporter:latest
@@ -40,7 +38,7 @@ services:
     volumes:
       - /var/run/fail2ban/:/var/run/fail2ban:ro
     ports:
-      - "19191:9191"
+      - "9191:9191"
 
 volumes:
   grafana-data:
