@@ -30,7 +30,7 @@ services:
     ports: 
       - "9113:9113"
     command:
-      - '--nginx.scrape-uri=http://host.docker.internal/nginx_status'
+      - '--nginx.scrape-uri=http://172.26.0.1/nginx_status'
 
   f2b-exporter:
     image: registry.gitlab.com/hctrdev/fail2ban-prometheus-exporter:latest
